@@ -17,10 +17,10 @@ public class Person {
     @GeneratedValue
     private Integer personID;
     @Basic
-    private String LastName;
-    private String FirstName;
-    private String Email;
-    private String City; 
+    private String lastname;
+    private String firstname;
+    private String email;
+    private String city; 
 
 
 }
