@@ -1,6 +1,7 @@
 package com.josedev.apirest.Person;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -21,4 +22,9 @@ public class PersonService {
         return personRepo.findAll();
     }
 
+    public Optional<Person> getPersonById(int personID)
+    {
+        return personRepo.findById(personID);
+    }
+    
 }
