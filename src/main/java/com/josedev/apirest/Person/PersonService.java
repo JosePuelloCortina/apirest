@@ -27,4 +27,8 @@ public class PersonService {
         return personRepo.findById(personID);
     }
     
+    public List<Person> getPersonByName(String name)
+    {
+        return personRepo.findByFirstname(name);
+    }
 }

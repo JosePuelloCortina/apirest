@@ -31,9 +31,15 @@ public class PersonController {
         return personService.allPerson();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Optional<Person> getPersonById(@PathVariable("id") int personID)
     {
         return personService.getPersonById(personID);
+    }
+
+    @GetMapping("/search/{name}")
+    public List<Person> getPersonByName(@PathVariable("name") String firstname)
+    {
+        return personService.getPersonByName(firstname);
     }
 }
