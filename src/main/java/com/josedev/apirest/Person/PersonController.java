@@ -3,6 +3,7 @@ package com.josedev.apirest.Person;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,11 @@ public class PersonController {
     public List<Person> getPersonByName(@PathVariable("name") String firstname)
     {
         return personService.getPersonByName(firstname);
+    }
+
+    @DeleteMapping("/delete/id/{id}")
+    public void deletePersonById(@PathVariable("id") int personID)
+    {
+        personService.deletePersonById(personID);
     }
 }

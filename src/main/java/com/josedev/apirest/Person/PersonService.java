@@ -31,4 +31,11 @@ public class PersonService {
     {
         return personRepo.findByFirstname(name);
     }
+
+    public Object deletePersonById(int personID)
+    {
+        personRepo.deleteById(personID);
+        return null; 
+        
+    }
 }
