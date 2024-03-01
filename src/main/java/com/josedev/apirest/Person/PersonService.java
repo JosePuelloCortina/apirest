@@ -3,6 +3,8 @@ package com.josedev.apirest.Person;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,10 +34,15 @@ public class PersonService {
         return personRepo.findByFirstname(name);
     }
 
-    public Object deletePersonById(int personID)
+    public ResponseEntity<String> deletePersonById(int personID)
     {
-        personRepo.deleteById(personID);
-        return null; 
+        if(personRepo.existsById(personID)){
+            personRepo.deleteById(personID);
+            return ResponseEntity.status(HttpStatus.OK).body("Registro eliminado");
+        }else{
+            System.out.println("no se encuentra");
+            return ResponseEntity.status(HttpStatus.OK).body( "No se encontro ningun registro"); 
+        }
         
     }
 }
