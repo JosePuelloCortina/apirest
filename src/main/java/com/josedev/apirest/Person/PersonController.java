@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/person")
@@ -23,7 +25,7 @@ public class PersonController {
     @PostMapping
     public void createPersona(@RequestBody Person person)
     {
-        personService.createPersona(person);
+       personService.createPersona(person);
     }
 
     @GetMapping("/allperson")
@@ -48,5 +50,10 @@ public class PersonController {
     public void deletePersonById(@PathVariable("id") int personID)
     {
         personService.deletePersonById(personID);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updatePerson(@PathVariable("id") int personID, @RequestBody Person person) {      
+        personService.updatePerson(person, personID);
     }
 }
