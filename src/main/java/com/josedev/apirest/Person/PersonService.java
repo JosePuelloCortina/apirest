@@ -35,7 +35,11 @@ public class PersonService {
     
     public List<Person> getPersonByName(String name)
     {
-        return personRepo.findByFirstname(name);
+        if(personRepo.findByFirstname(name) != null)
+        {
+            return personRepo.findByFirstname(name);
+        }
+        return null;
     }
 
     public ResponseEntity<String> deletePersonById(int personID)
