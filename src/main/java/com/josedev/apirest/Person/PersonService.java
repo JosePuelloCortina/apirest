@@ -25,21 +25,30 @@ public class PersonService {
 
     public List<Person> allPerson()
     {
-        return personRepo.findAll();
+        List<Person> persons = personRepo.findAll();
+        if (persons.isEmpty()) {
+            throw new EntityNotFoundException("No se encontro ningun registro");            
+        }
+        return persons;
     }
 
     public Optional<Person> getPersonById(int personID)
     {
-        return personRepo.findById(personID);
+        Optional<Person> persons = personRepo.findById(personID);
+        if(persons.isEmpty()){
+            throw new EntityNotFoundException("No se encontro personas con el id: " + personID);
+        } 
+        return persons;
     }
     
     public List<Person> getPersonByName(String name)
     {
-        if(personRepo.findByFirstname(name) != null)
+        List<Person> persons = personRepo.findByFirstname(name);
+        if(persons.isEmpty())
         {
-            return personRepo.findByFirstname(name);
+            throw new EntityNotFoundException("No se encontro personas con el nombre: "+ name);
         }
-        return null;
+        return persons;
     }
 
     public ResponseEntity<String> deletePersonById(int personID)
@@ -48,8 +57,7 @@ public class PersonService {
             personRepo.deleteById(personID);
             return ResponseEntity.status(HttpStatus.OK).body("Registro eliminado");
         }else{
-            System.out.println("no se encuentra");
-            return ResponseEntity.status(HttpStatus.OK).body( "No se encontro ningun registro"); 
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body( "No se encontro ningun registro"); 
         }
         
     }
