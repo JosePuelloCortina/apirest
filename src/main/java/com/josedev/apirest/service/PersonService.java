@@ -1,8 +1,11 @@
-package com.josedev.apirest.Person;
+package com.josedev.apirest.service;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+
+import com.josedev.apirest.Person.Person;
+import com.josedev.apirest.repository.PersonRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

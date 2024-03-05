@@ -1,4 +1,4 @@
-package com.josedev.apirest.Person;
+package com.josedev.apirest.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.josedev.apirest.Person.Person;
+import com.josedev.apirest.service.PersonService;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
