@@ -1,8 +1,3 @@
-
-Claro, aquí tienes un ejemplo de una plantilla Thymeleaf para una lista de personas con las propiedades personID, firstname, lastname, email y city:
-
-html
-Copy code
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -22,7 +17,6 @@ Copy code
             </tr>
         </thead>
         <tbody>
-            <!-- Itera sobre la lista de personas y muestra los detalles de cada una -->
             <tr th:each="person : ${personList}">
                 <td th:text="${person.personID}"></td>
                 <td th:text="${person.firstname}"></td>
