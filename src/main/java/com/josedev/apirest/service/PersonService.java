@@ -62,7 +62,6 @@ public class PersonService {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body( "No se encontro ningun registro"); 
         }
-        
     }
 
     public void updatePerson(Person person, int personID)

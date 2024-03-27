@@ -21,6 +21,4 @@ public class Person {
     private String firstname;
     private String email;
     private String city; 
-
-
 }
